@@ -3,7 +3,7 @@
     <div class="row">
       <AdsCard />
       <div class="col-12 text-center m-3">
-        <button v-if="account.id" class="btn btn-dark" type="button" title="Open Post Form" data-bs-toggle="modal"
+        <button v-if="account.id" class="btn btn-dark" type="button" title="Open" data-bs-toggle="modal"
           data-bs-target="#postFormModal">
           Create Post
         </button>

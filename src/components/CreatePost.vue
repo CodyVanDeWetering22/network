@@ -56,7 +56,7 @@ export default {
 
                     editable.value = {}
 
-                    Modal.getOrCreateInstance('#PostFormModal').hide()
+                    Modal.getOrCreateInstance('#postFormModal').hide()
 
                 } catch (error) {
                     Pop.error(error)
