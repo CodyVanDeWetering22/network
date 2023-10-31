@@ -10,6 +10,7 @@ export class Profile {
         this.resume = data.resume
         this.class = data.class
         this.picture = data.picture
+
     }
 }
 

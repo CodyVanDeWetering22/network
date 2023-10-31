@@ -9,8 +9,9 @@
 
                     <form @submit.prevent="handleSubmit()">
                         <div class="mb-3">
-                            <label for="url" class="form-label">Post url</label>
-                            <input v-model="editable.url" type="url" class="form-control" id="url">
+                            <!-- FIXME make sure you are sending the correct value to the API for the post's imgUrl -->
+                            <label for="imgUrl" class="form-label">Post url</label>
+                            <input v-model="editable.imgUrl" type="url" class="form-control" id="imgUrl">
                         </div>
                         <div class="mb-3">
                             <label for="body" class="form-label">body</label>
@@ -31,13 +32,14 @@
 import { Modal } from 'bootstrap';
 import { postsService } from '../services/PostService.js';
 import Pop from '../utils/Pop.js'
+import { ref } from 'vue';
 
 
 
 
 export default {
     setup() {
-        const editable = ({})
+        const editable = ref({})
 
         return {
             editable,

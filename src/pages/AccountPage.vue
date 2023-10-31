@@ -27,17 +27,26 @@
         <input v-model="editable.github" type="url" class="form-control" id="github" />
       </div>
       <div class="mb-5">
-        <label for="LinkedIn" class="form-label">LinkedIn</label>
-        <input v-model="editable.LinkedIn" type="url" class="form-control" id="linkedIn" />
+        <label for="linkedin" class="form-label">linkedIn</label>
+        <input v-model="editable.linkedin" type="url" class="form-control" id="linkedin" />
       </div>
       <div class="mb-5">
         <label for="resume" class="form-label">Resume</label>
         <input v-model="editable.resume" type="url" class="form-control" id="resume" />
       </div>
       <div class="mb-5">
+        <input v-model="editable.graduated" class="form-check-input" type="checkbox" value="" id="graduated">
+        <label class="form-check-label" for="graduated">graduated</label>
+      </div>
+      <div class="mb-5">
+        <label for="class" class="form-label">class</label>
+        <input v-model="editable.class" type="text" class="form-control" id="class" />
+      </div>
+      <div class="mb-5">
         <label for="bio" class="form-label">Bio</label>
         <textarea v-model="editable.bio" type="text" class="form-control" id="bio" />
       </div>
+
 
       <button type="submit" class="btn btn-primary">Submit</button>
     </form>

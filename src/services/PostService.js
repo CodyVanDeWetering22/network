@@ -16,8 +16,17 @@ class PostsService {
         const res = await api.post('api/posts', postData)
         logger.log('creating post')
         const newPost = new Post(res.data)
-        AppState.posts = newPost
         AppState.posts.unshift(newPost)
+    }
+
+    async destroyPost(postId) {
+        const res = await api.delete(`api/posts/${postId}`)
+        logger.log(res.data)
+    }
+    async likePost(postId) {
+        const res = await api.post(`api/posts/${postId}/like`)
+        logger.log(res.data)
+
     }
 }
 

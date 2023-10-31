@@ -21,6 +21,8 @@
 
   </div>
 
+  <!-- TODO ad buttons for page navigation, reference vueflix or pokedex -->
+
   <CreatePost />
 </template>
 

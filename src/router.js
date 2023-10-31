@@ -28,6 +28,7 @@ const routes = [
     component: loadPage('ProfilePage'),
     // beforeEnter: authGuard
   },
+  // TODO create a search page, make sure you add an object to router so you can navigate there, reference my code from Vueflix lecture for search functionality
 ]
 
 export const router = createRouter({

@@ -25,19 +25,58 @@
         <p class="text-center mt-3">
             {{ postProp.body }}
         </p>
-        <p class="mdi mdi-heart text-end fs-2"> {{ postProp.likes.length }}</p>
+        <!-- TODO add button to delete post, make sure this button shows up only if the logged in user created this post -->
+        <div v-if="account.id == postProp.creator.id" @click="destroyPost()" role="button" class="mdi mdi-delete fs-2">
+
+
+        </div>
+        <!-- TODO add button to like post -->
+        <button @click="likePost()" class="mdi mdi-heart text-end fs-2"> {{ postProp.likes.length }}</button>
     </div>
 </template>
 
 
 <script>
 
+import { computed } from 'vue';
 import { Post } from '../models/Post.js';
+import { AppState } from '../AppState.js';
+import Pop from '../utils/Pop.js';
+import { postsService } from '../services/PostService.js'
+import { logger } from '../utils/Logger.js';
+
 
 export default {
     props: { postProp: { type: Post, required: true } },
     setup(props) {
-        return {}
+        return {
+            post: computed(() => AppState.posts),
+            account: computed(() => AppState.account),
+
+            async destroyPost() {
+                try {
+                    const yes = await Pop.confirm('Are you sure you want to delete?')
+                    if (!yes) {
+                        return
+                    }
+                    const postId = props.postProp.id
+                    logger.log(props.postProp.id)
+                    await postsService.destroyPost(postId)
+
+                } catch (error) {
+                    Pop.error
+                }
+            },
+
+            async likePost() {
+                try {
+                    const postId = props.postProp.id
+                    await postsService.likePost(postId)
+                } catch (error) {
+                    Pop.error(error)
+                }
+            }
+        }
     }
 };
 </script>
